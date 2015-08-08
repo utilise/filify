@@ -1,5 +1,5 @@
 var through = require('through2')
-  , file = require('utilise/file')
+  , file = require('utilise.file')
   , resolve = require('path').resolve
 
 module.exports = function () {
