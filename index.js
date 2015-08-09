@@ -8,7 +8,7 @@ module.exports = function () {
       buf
         .toString('utf8')
         .replace(/file\((.*?)\)/g, function($0, $1){ 
-          return '"' + file(resolve($1.replace(/'/g, ''))).replace(/\r\n/g, '\\r\\n') + '"'
+          return '"' + file(resolve($1.replace(/'/g, ''))).replace(/\n/g, '\\n').replace(/\r/g, '') + '"'
         }) 
     )
     next()
