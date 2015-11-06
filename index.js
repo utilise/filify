@@ -12,7 +12,7 @@ module.exports = function (path) {
           var resolved = eval($1
             .replace('__dirname', '"' + dirname(path).replace(/\\/g, '\\\\') + '"'))
           
-          return '"' + file(resolve(resolved)).replace(/\n/g, '\\n').replace(/\r/g, '') + '"'
+          return '"' + file(resolve(resolved)).replace(/\n/g, '\\n').replace(/\r/g, '').replace(/"/g, '\\"') + '"'
         }) 
     )
     next()
