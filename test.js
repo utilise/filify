@@ -19,4 +19,17 @@ describe('filify', function() {
     }
   })
 
+  it('should not replace if function declaration', function(done) {
+    browserify()
+      .add('fun.js')
+      .transform(filify)
+      .bundle()
+      .pipe(via(test))
+
+    function test(output){
+      expect(is.in(output)('"ba\\"z"')).to.be.ok
+      done()
+    }
+  })
+
 })

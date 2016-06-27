@@ -9,6 +9,7 @@ module.exports = function (path) {
       buf
         .toString('utf8')
         .replace(/file\((.*?)\)/g, function($0, $1){ 
+          if (str.slice(i-9, i) == 'function ') return $0
           var resolved = eval($1
             .replace('__dirname', '"' + dirname(path).replace(/\\/g, '\\\\') + '"'))
           
