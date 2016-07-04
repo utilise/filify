@@ -27,7 +27,7 @@ describe('filify', function() {
       .pipe(via(test))
 
     function test(output){
-      expect(is.in(output)('"ba\\"z"')).to.be.ok
+      expect(is.in(output)('function file(name){}')).to.be.ok
       done()
     }
   })

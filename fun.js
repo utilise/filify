@@ -1,1 +1,1 @@
-file('bar.css')
+function file(name){}

@@ -1,5 +1,6 @@
 var through = require('through2')
   , file = require('utilise.file')
+  , to = require('utilise.to')
   , resolve = require('path').resolve
   , dirname = require('path').dirname
 
@@ -9,6 +10,9 @@ module.exports = function (path) {
       buf
         .toString('utf8')
         .replace(/file\((.*?)\)/g, function($0, $1){ 
+          var args = to.arr(arguments)
+            , str = args.pop()
+            , i = args.pop()
           if (str.slice(i-9, i) == 'function ') return $0
           var resolved = eval($1
             .replace('__dirname', '"' + dirname(path).replace(/\\/g, '\\\\') + '"'))
